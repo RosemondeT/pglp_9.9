@@ -2,6 +2,8 @@ package uvsq21921354;
 
 import org.junit.Test;
 
+import Forme_Graphique.Affichage;
+
 
 /**
  * 

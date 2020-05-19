@@ -1,4 +1,6 @@
-package uvsq21921354;
+package Command;
+
+import Forme_Graphique.FormeGraphique;
 
 /**
  * 
@@ -6,7 +8,7 @@ package uvsq21921354;
  *
  */
 public interface Commande {
-	 void execute();
-	 void undo();
+	 public void execute();
+
 
 }

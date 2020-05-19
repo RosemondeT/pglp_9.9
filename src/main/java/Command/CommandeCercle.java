@@ -1,52 +1,47 @@
-package uvsq21921354;
+package Command;
+
+
+import java.util.ArrayList;
+
+import Forme_Graphique.Affichage;
+import Forme_Graphique.Cercle;
+
 
 /**
  * 
  * Classe CommandeCercle qui implémente l'interface Commande
  *
  */
+
 public class CommandeCercle implements Commande{
-	  private String[] parameters;
-	  private Groupe_FormeGraphique groupe;
-	  
-	  /**
-	   * Constructeur de CommandeCercle
-	   * @param parameters
-	   * @param groupe
-	   */
-	  public CommandeCercle(String[] parameters, Groupe_FormeGraphique groupe){
-	    this.parameters=parameters;
-	    this.groupe=groupe;
-	  }
+  private Interpreteur interprete;
+  
+  /**
+   * Constructeur
+   * @param interpreteur
+   */
+  public CommandeCercle(Interpreteur interpreteur){
+    this.interprete=interpreteur;
+  }
 
-	  /**
-	   * Implémentation de la méthode execute()
-	   */
-	  @Override
-	  public void execute() {
-	    if (this.parameters.length != 4) {
-	      Affichage a = new Affichage();
-	      a.posting("Erreur sur le nombre de paramètres.");
-	    }
-	    else{
-	      try {
-	        double a = Double.parseDouble(this.parameters[1]);
-	        double b = Double.parseDouble(this.parameters[2]);
-	        double c = Double.parseDouble(this.parameters[3]);
-	        groupe.addFormeGraphique(new Cercle(parameters[0],a,b,c));
-	      }catch(NumberFormatException e){
-	        e.printStackTrace();
-	      }
-	    }
-	  }
-
+  @Override
+  public void execute() {
+    if (interprete.parametersT.length != 4) {
+      Affichage a = new Affichage();
+      a.posting("Erreur!!!! nombre de paramètres insuffisant pour dessiner un Cercle.");
+    }
+    else{
+      try {
+        interprete.undo.push(new ArrayList<>( interprete.dessin));
+        interprete.redo.clear();
+        double x = Double.parseDouble( interprete.parametersT[1]);
+        double y = Double.parseDouble( interprete.parametersT[2]);
+        double z = Double.parseDouble( interprete.parametersT[3]);
+        interprete.dessin.add(new Cercle( interprete.parametersT[0],x,y,z));
+      }catch(NumberFormatException e){
+        e.printStackTrace();
+      }
+    }
+  }
+}
 	  
-	  /**
-	   * Implémentation de la méthode undo()
-	   */
-	@Override
-	public void undo() {
-		// TODO Auto-generated method stub
-		
-	}
-	}

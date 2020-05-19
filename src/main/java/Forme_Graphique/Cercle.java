@@ -1,8 +1,9 @@
-package uvsq21921354;
+package Forme_Graphique;
 
 /**
  * 
- *Classe Cercle
+ *Cette classe implémentant l'interface FormeGraphique permet de créer 
+ * et de manipuler des formes graphiques de type Cercle.
  *
  */
 public class Cercle implements FormeGraphique {
@@ -24,15 +25,16 @@ public class Cercle implements FormeGraphique {
 		  }
 
 	  /**
-	   * Méthode permettant d'avoir accès au nom
+	   * Méthode permettant d'avoir accès au nom donné à un objet de type Cercle
 	   * @return
 	   */
+	 @Override
 	  public String getNom() {
 		return nom;
 	}
 	  
 	  /**
-	   * Méthode permettant de modifier le nom
+	   * Méthode permettant de modifier le nom donné à un objet de type Cercle
 	   * @param nom
 	   */
 
@@ -41,7 +43,7 @@ public class Cercle implements FormeGraphique {
 	}
 
 	/**
-	 *Méthode permettant d'avoir accès aux coordonnées du Centre
+	 *Méthode permettant d'avoir accès aux coordonnées du centre d'un objet de type Cercle
 	 * @return
 	 */
 	public Point2D getCentre() {
@@ -49,7 +51,7 @@ public class Cercle implements FormeGraphique {
 	}
 
 	/**
-	 * Méthode permettant de modifier les coordonnées du centre
+	 * Méthode permettant de modifier les coordonnées du centre d'un objet de type Cercle
 	 * @param centre
 	 */
 	public void setCentre(Point2D centre) {
@@ -57,7 +59,7 @@ public class Cercle implements FormeGraphique {
 	}
 
 	/**
-	 * Méthode permettant d'avoir accès aux coordonnées du rayon
+	 * Méthode permettant d'avoir accès aux coordonnées du rayon d'un objet de type Cercle
 	 * @return
 	 */
 	public double getRayon() {
@@ -66,7 +68,7 @@ public class Cercle implements FormeGraphique {
 	
 	
 /**
- * Methode permettant de modifier les valeurs du rayon
+ * Methode permettant de modifier les valeurs du rayon d'un objet de type Cercle
  * @param rayon
  */
 	public void setRayon(double rayon) {
@@ -74,15 +76,16 @@ public class Cercle implements FormeGraphique {
 	}
 
 	/**
-	   * Méthode move qui permet le déplacement du centre
+	   * Méthode move qui permet le déplacement du centre d'un objet de type Cercle
 	   */
+	@Override
 	public void move(double x, double y) {
 		centre.move(x,y);
 		
 	}
 	
 	/**
-	 * On définie l'affichage du centre
+	 * permet de définir l'affichage d'un objet de type cercle
 	 */
 	public String toString(){
 	    return "Cercle(centre=("+this.centre.getX()  +"," +this.centre.getY() +"),rayon="+this.rayon +")";
@@ -90,12 +93,16 @@ public class Cercle implements FormeGraphique {
 
 
 	/**
-	 * La méthode View qui permet l'affichage des coordonées du centre
+	 * La méthode qui permet l'affichage d'un objet de type cercle
 	 */
-	public void view() {
-		Affichage affiche=new Affichage();
-		affiche.posting(this.toString());
-	  }
+
+	@Override
+	public void printForme() {
+		 Affichage a=new Affichage();
+		    a.posting(this.toString());
+		
+	}
+
 
 	
 		

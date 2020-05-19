@@ -1,4 +1,4 @@
-package uvsq21921354;
+package Persistence;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -9,6 +9,8 @@ import java.util.Properties;
 /**
  * 
  * Classe qui permet la connexion à la base de données
+ *  et la création des tables Cercles, Rectangles, Triangle
+ *  et Carré dans la base de données
  *
  */
 public class Login {
@@ -33,12 +35,12 @@ public class Login {
 	/**
 	 * Méthode qui permet la création de la table Cercle dans la base de données 
 	 */
-	 public void createTables(){
+	 public void createTableCercle(){
 			try (Connection connect = DriverManager.getConnection(db)){
 				Statement state = connect.createStatement();
-				state.addBatch("CREATE TABLE Cercle ("+ "nom VARCHAR(100) PRIMARY KEY,"+ "CoordoneesX double,"+ "CoordoneesY double,"+ "rayon Double "+ ")");
+				state.addBatch("CREATE TABLE Cercle ("+ "nom VARCHAR(100) PRIMARY KEY,"+ "CoordoneesX double,"+ "CoordoneesY double,"+ "rayon double "+ ")");
 				state.executeBatch();
-				System.out.println("Création de table reussie ");
+				System.out.println("Création de la table Cercle reussie ");
 			} 
 			catch (SQLException e){
 				e.printStackTrace();
@@ -46,14 +48,102 @@ public class Login {
 		}
 	
 	/**
-	 * Méthode qui permet de supprimer une table dans la base de données
+	 * Méthode qui permet de supprimer la table Cercle dans la base de données
 	 */
-	public void DropTables(){
+	public void DropTableCercle(){
 		try (Connection connect = DriverManager.getConnection(db)){
 			Statement state = connect.createStatement();
 			state.addBatch("DROP TABLE Cercle");
 			state.executeBatch();
-			System.out.println("supression de table reussie ");
+			System.out.println("supression de la table Cercle reussie ");
+		} 
+		catch (SQLException e){
+			e.printStackTrace();
+		}	
+	}
+	
+	
+	/**
+	 * Méthode qui permet la création de la table Carre dans la base de données
+	 */
+	public void createTableCarre(){
+		try (Connection connect = DriverManager.getConnection(db)){
+			Statement state = connect.createStatement();
+			state.addBatch("CREATE TABLE Carre ("+ "nom VARCHAR(100) PRIMARY KEY,"+ "CoordoneesX double,"+ "CoordoneesY double,"+ "cote double "+ ")");
+			state.executeBatch();
+			System.out.println("Création de la table Carre reussie ");
+		} 
+		catch (SQLException e){
+			e.printStackTrace();
+		}		
+	}
+	
+	/**
+	 * Méthode qui permet la suppression de la table Carre dans la base de données
+	 */
+	public void DropTableCarre(){
+		try (Connection connect = DriverManager.getConnection(db)){
+			Statement state = connect.createStatement();
+			state.addBatch("DROP TABLE Carre");
+			state.executeBatch();
+			System.out.println("supression de la table Carre reussie ");
+		} 
+		catch (SQLException e){
+			e.printStackTrace();
+		}	
+	}
+	
+	
+	/**
+	 * Méthode qui permet la création de la table Rectangle dans la base de données
+	 */
+	public void createTableRectangle(){
+		try (Connection connect = DriverManager.getConnection(db)){
+			Statement state = connect.createStatement();
+			state.addBatch("CREATE TABLE Rectangle ("+ "nom VARCHAR(100) PRIMARY KEY,"+ "CoordoneesX double,"+ "CoordoneesY double,"+ "longueur double, "+ "largeur double "+ ")");
+			state.executeBatch();
+			System.out.println("Création de la table Rectangle reussie ");
+		} 
+		catch (SQLException e){
+			e.printStackTrace();
+		}		
+	}
+	
+	/**
+	 * Méthode qui permet de supprimer la table
+	 */
+	public void DropTableRectangle(){
+		try (Connection connect = DriverManager.getConnection(db)){
+			Statement state = connect.createStatement();
+			state.addBatch("DROP TABLE Rectangle");
+			state.executeBatch();
+			System.out.println("supression de la table Rectangle reussie ");
+		} 
+		catch (SQLException e){
+			e.printStackTrace();
+		}	
+	}
+	
+	
+	public void createTableTriangle(){
+		try (Connection connect = DriverManager.getConnection(db)){
+			Statement state = connect.createStatement();
+			state.addBatch("CREATE TABLE Triangle ("+ "nom VARCHAR(100) PRIMARY KEY,"+ "CoordoneesX double,"+ "CoordoneesY double,"+ "CoordoneesZ double, "+ "CoordoneesT double, "+ " CoordoneesU double, "+ " CoordoneesV double   "+ ")");
+			state.executeBatch();
+			System.out.println("Création de la table Triangle reussie ");
+		} 
+		catch (SQLException e){
+			e.printStackTrace();
+		}		
+	}
+	
+	
+	public void DropTableTriangle(){
+		try (Connection connect = DriverManager.getConnection(db)){
+			Statement state = connect.createStatement();
+			state.addBatch("DROP TABLE Triangle");
+			state.executeBatch();
+			System.out.println("supression de la table Triangle reussie ");
 		} 
 		catch (SQLException e){
 			e.printStackTrace();

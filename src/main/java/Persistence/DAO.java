@@ -1,4 +1,6 @@
-package uvsq21921354;
+package Persistence;
+
+import java.util.List;
 
 /**
  * 
@@ -9,8 +11,9 @@ package uvsq21921354;
 
 public abstract class DAO<T> {
 	 public abstract T create(T objet);
-	  public abstract T find(String id);
 	  public abstract T update(T objet);
+	  public abstract T find(String id);
 	  public abstract void delete(T objet);
+	  public abstract List<T> findAll();
 
 }

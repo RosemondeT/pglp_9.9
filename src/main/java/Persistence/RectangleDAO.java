@@ -1,36 +1,29 @@
 package Persistence;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.util.ArrayList;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
-
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 
-import Forme_Graphique.Cercle;
 
-/**
- * 
- * Classe CercleDAO qui hérite de DAO
- *
- */
-public class CercleDAO extends DAO<Cercle>{
+import Forme_Graphique.Rectangle;
+
+public class RectangleDAO extends DAO<Rectangle> {
 	
 	private static String db = Login.db;
 
-	/**
-	 * Création de la table Cercle dans la base de données
-	 */
 	@Override
-	public Cercle create(Cercle objet) {
+	public Rectangle create(Rectangle objet) {
 		try (Connection connect = DriverManager.getConnection(db)){
-			PreparedStatement prepare = connect.prepareStatement("INSERT INTO Cercle (nom, CoordoneesX, CoordoneesY, rayon)" +"VALUES (?, ?, ?, ?)");
+			PreparedStatement prepare = connect.prepareStatement("INSERT INTO Rectangle (nom, CoordoneesX, CoordoneesY, longueur, largeur)" +"VALUES (?, ?, ?, ?, ?)");
 			prepare.setString(1,objet.getNom());
-			prepare.setDouble(2,objet.getCentre().getX());
-			prepare.setDouble(3,objet.getCentre().getY());
-			prepare.setDouble(4,objet.getRayon());
+			prepare.setDouble(2,objet.getPoint_depart().getX());
+			prepare.setDouble(3,objet.getPoint_depart().getY());
+			prepare.setDouble(4,objet.getLongueur());
+			prepare.setDouble(5,objet.getLargeur());
 			System.out.println("Insertion reussie " + objet);
 			int result = prepare.executeUpdate();
 			assert result == 1; 
@@ -41,25 +34,23 @@ public class CercleDAO extends DAO<Cercle>{
 		return objet;
 	}
 
-	/**
-	 * Rechercher un cercle 
-	 */
 	@Override
-	public Cercle find(String id) {
-		Cercle C1= null;
+	public Rectangle find(String id) {
+		Rectangle R1= null;
 		try (Connection connect = DriverManager.getConnection(db)){
 			System.out.println(" Recherche " + id);
-			PreparedStatement prepare = connect.prepareStatement("SELECT * FROM Cercle WHERE nom = ?");
+			PreparedStatement prepare = connect.prepareStatement("SELECT * FROM Rectangle WHERE nom = ?");
 			prepare.setString(1, id);
 			ResultSet result = prepare.executeQuery();
 		
 			if(result.next()){
 			
-				C1 = new Cercle(
+				R1 = new Rectangle(
 			            result.getString("nom"),
-			            result.getDouble("CoordonneesX"),
-			            result.getDouble("CoordonnesY"),
-			            result.getDouble("rayon")
+			            result.getDouble("CoordoneesX"),
+			            result.getDouble("CoordoneesY"),
+			            result.getDouble("longueur"),
+			            result.getDouble("largeur")
 			        );
 			
 				result.close();
@@ -69,21 +60,19 @@ public class CercleDAO extends DAO<Cercle>{
 		catch (SQLException e){
 			e.printStackTrace();
 		}
-		return C1;
+		return R1;
 		
 	}
 
-	/**
-	 * Mettre à jour la table Cercle
-	 */
 	@Override
-	public Cercle update(Cercle objet) {
+	public Rectangle update(Rectangle objet) {
 		try (Connection connect = DriverManager.getConnection(db)) {
-			PreparedStatement prepare = connect.prepareStatement("UPDATE Cercle SET CoordoneesX = ?, CoordoneesY = ?, rayon = ? WHERE nom = ?");
+			PreparedStatement prepare = connect.prepareStatement("UPDATE Rectangle SET CoordoneesX = ?, CoordoneesY = ?, longueur = ?, largeur = ? WHERE nom = ?");
 			prepare.setString(1, objet.getNom());
-			prepare.setDouble(2, objet.getCentre().getX());
-			prepare.setDouble(3, objet.getCentre().getY());
-			prepare.setDouble(4, objet.getRayon());
+			prepare.setDouble(2, objet.getPoint_depart().getX());
+			prepare.setDouble(3, objet.getPoint_depart().getY());
+			prepare.setDouble(4, objet.getLongueur());
+			prepare.setDouble(5, objet.getLargeur());
 			
 		
 			int result = prepare.executeUpdate();
@@ -95,15 +84,11 @@ public class CercleDAO extends DAO<Cercle>{
 		System.out.println("Mise A Jour " + objet);
 		return objet;
 	}
-	
-	/**
-	 * Supprimer un Cercle de la base de données
-	 */
 
 	@Override
-	public void delete(Cercle objet) {
+	public void delete(Rectangle objet) {
 		try (Connection connect = DriverManager.getConnection(db)){
-			PreparedStatement prepare = connect.prepareStatement("DELETE FROM Cercle "+ "WHERE nom = ?");
+			PreparedStatement prepare = connect.prepareStatement("DELETE FROM Rectangle "+ "WHERE nom = ?");
 			prepare.setString(1, objet.getNom());
 			int result = prepare.executeUpdate();
 			assert result == 1;
@@ -116,17 +101,18 @@ public class CercleDAO extends DAO<Cercle>{
 	}
 
 	@Override
-	public List<Cercle> findAll() {
-		 List<Cercle> cercle = new ArrayList<>();
+	public List<Rectangle> findAll() {
+		 List<Rectangle> rectangle = new ArrayList<>();
 			try (Connection connect = DriverManager.getConnection(db)){
-				PreparedStatement prepare = connect.prepareStatement("SELECT FROM Cercle "+ "WHERE nom = ?");
+				PreparedStatement prepare = connect.prepareStatement("SELECT FROM Rectangle "+ "WHERE nom = ?");
 				ResultSet result = prepare.executeQuery();
 		      while(result.next()){
-		        cercle.add(new Cercle(
+		        rectangle.add(new Rectangle(
 		            result.getString("nom"),
 		            result.getDouble("CoordoneesX"),
 		            result.getDouble("CoordoneesY"),
-		            result.getDouble("rayon")
+		            result.getDouble("longeur"),
+		            result.getDouble("largeur")
 		        ));
 		      }
 		    
@@ -134,7 +120,7 @@ public class CercleDAO extends DAO<Cercle>{
 		      e.printStackTrace();
 		    }
 		  
-		    return cercle;
+		    return rectangle;
 		  }
 	}
 
