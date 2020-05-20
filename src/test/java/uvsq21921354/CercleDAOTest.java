@@ -27,7 +27,7 @@ public class CercleDAOTest {
 	@Test
 	  public void InsertTest(){
 		
-	    Cercle c2 = new Cercle("c2",3,3,5);
+	    Cercle c2 = new Cercle("c4",3,3,5);
 	    DAO<Cercle> D = new CercleDAO();
 	    D.create(c2);
 	    
@@ -53,6 +53,7 @@ public class CercleDAOTest {
 	  public void findAll() throws Exception {
 	    List<Cercle> ls = new ArrayList<>();
 	    ls.addAll(DAOFactory.getCercleDAO().findAll());
+	    
 	    System.out.println(ls);
 	  }
 	

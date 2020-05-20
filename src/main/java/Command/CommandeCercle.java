@@ -38,6 +38,7 @@ public class CommandeCercle implements Commande{
         double y = Double.parseDouble( interprete.parametersT[2]);
         double z = Double.parseDouble( interprete.parametersT[3]);
         interprete.dessin.add(new Cercle( interprete.parametersT[0],x,y,z));
+        System.out.println("Figure Cercle crée avec succès!!!!");
       }catch(NumberFormatException e){
         e.printStackTrace();
       }

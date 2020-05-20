@@ -27,6 +27,7 @@ public class CommandeCarre implements Commande {
 	        double y = Double.parseDouble( interprete.parametersT[2]);
 	        double z = Double.parseDouble( interprete.parametersT[3]);
 	        interprete.dessin.add(new Carre( interprete.parametersT[0],x,y,z));
+	        System.out.println("Figure Carre crée avec succès!!!!");
 	      }catch(NumberFormatException e){
 	        e.printStackTrace();
 	      }

@@ -119,7 +119,7 @@ public class CercleDAO extends DAO<Cercle>{
 	public List<Cercle> findAll() {
 		 List<Cercle> cercle = new ArrayList<>();
 			try (Connection connect = DriverManager.getConnection(db)){
-				PreparedStatement prepare = connect.prepareStatement("SELECT FROM Cercle "+ "WHERE nom = ?");
+				PreparedStatement prepare = connect.prepareStatement("SELECT * FROM Cercle "+ "WHERE nom = ?");
 				ResultSet result = prepare.executeQuery();
 		      while(result.next()){
 		        cercle.add(new Cercle(

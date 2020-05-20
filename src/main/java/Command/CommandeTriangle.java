@@ -35,6 +35,8 @@ public class CommandeTriangle implements Commande {
 	        double v = Double.parseDouble( interprete.parametersT[6]);
 	        
 	         interprete.dessin.add(new Triangle( interprete.parametersT[0],x,y,z,t, u, v));
+	         System.out.println("Figure Triangle crée avec succès");
+			    
 	      }catch(NumberFormatException e){
 	        e.printStackTrace();
 	      }

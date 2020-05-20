@@ -16,7 +16,7 @@ public class Interpreteur {
   public Interpreteur(){
     set.put("Cercle",new CommandeCercle(this));
     set.put("Move", new CommandeMove(this));
-    //set.put("Print", new CommandeAffiche(this));
+    set.put("Delete", new CommandeDelete(this));
     set.put("Undo", new CommandeUndo(this));
     set.put("Redo", new CommandeRedo(this));
     set.put("Quit", new CommandeQuit(this));

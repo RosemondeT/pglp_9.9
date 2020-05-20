@@ -39,7 +39,7 @@ public class CommandeRectangle implements Commande {
 	  	      a.posting("Erreur!!!! la largeur d'un rectangle doit être inférieure à la longueur .");
 	  	    
 	        	
-	        }else interprete.dessin.add(new Rectangle( interprete.parametersT[0],x,y,z,t));
+	        }else interprete.dessin.add(new Rectangle( interprete.parametersT[0],x,y,z,t));   System.out.println("Figure Rectangle crée avec succès");
 	      }catch(NumberFormatException e){
 	        e.printStackTrace();
 	      }

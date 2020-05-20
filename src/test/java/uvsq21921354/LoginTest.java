@@ -33,11 +33,11 @@ public class LoginTest {
 	/**
 	 * Méthode qui teste la méthode DropTables()
 	 */
-	@Test
+	/*@Test
 	  public void DropTableCercleTest(){
 	    Login db = new Login();
 	    db.DropTableCercle();
-	  }
+	  }*/
 
 	@Test
 	  public void createTableCarreTest(){
@@ -45,11 +45,11 @@ public class LoginTest {
 	    db.createTableCarre();
 	  }
 	  
-	  @Test
+	/* @Test
 	  public void DropTableCarreTest(){
 	    Login db = new Login();
 	    db.DropTableCarre();
-	  }
+	  }*/
 	  
 	  @Test
 	  public void createTableRectangleTest(){
@@ -57,20 +57,20 @@ public class LoginTest {
 	    db.createTableRectangle();
 	  }
 	  
-	  @Test
+	 /*@Test
 	  public void DropTableRectangleTest(){
 	    Login db = new Login();
-	    db.DropTableRectangle();}
+	    db.DropTableRectangle();}*/
 
 	
-	 @Test
+	@Test
 	  public void createTableTriangleTest(){
 	    Login db = new Login();
 	    db.createTableTriangle();
 	  }
 	
-	 @Test
+	 /*@Test
 	  public void DropTableTriangleTest(){
 	    Login db = new Login();
-	    db.DropTableTriangle();}
+	    db.DropTableTriangle();}*/
 }

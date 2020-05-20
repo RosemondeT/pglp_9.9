@@ -12,7 +12,7 @@ public class CommandeMove implements Commande {
     this.interprete=interpreteur;
   }
 
-  public FormeGraphique findGroupe(String name){
+  public FormeGraphique findFormeGraphique(String name){
     Groupe_FormeGraphique forme=null;
     for (FormeGraphique form : interprete.dessin){
       if (form.getNom().equals(name)) return form;
@@ -30,17 +30,23 @@ public class CommandeMove implements Commande {
   public void execute() {
     if (interprete.parametersT.length!=3){
       Affichage a = new Affichage();
-      a.posting("Erreur!!! nombre de paramètre");
+      a.posting("Erreur!!! nombre de paramètre insuffisant pour deplacer une figure géométrique");
     }
     else{
-     FormeGraphique f = findGroupe(interprete.parametersT[0]);
+     FormeGraphique f = findFormeGraphique(interprete.parametersT[0]);
+     
+     if (f==null) {System.out.println(interprete.parametersT[0] + "\n introuvable");}
+     
+     
       if (f!=null){
         try{
           double a = Double.parseDouble(interprete.parametersT[1]);
           double b = Double.parseDouble(interprete.parametersT[2]);
-          interprete.undo.push(interprete.dessin);
-          interprete.redo.clear();
+          //interprete.undo.push(interprete.dessin);
+         // interprete.redo.clear();
+         
           f.move(a,b);
+          System.out.println("Déplacement de\n" + f + "effectué avec succès");
         }catch(Exception e){
           e.printStackTrace();
         }

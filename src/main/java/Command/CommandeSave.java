@@ -18,6 +18,7 @@ public class CommandeSave implements Commande {
 
   public void saveList(List<FormeGraphique> list){
     for (FormeGraphique form : list){
+   
       if (form instanceof Cercle) DAOFactory.getCercleDAO().create((Cercle) form);
       if (form instanceof Carre) DAOFactory.getCarreDAO().create((Carre) form);
       if (form instanceof Rectangle) DAOFactory.getRectangleDAO().create((Rectangle) form);
@@ -29,5 +30,6 @@ public class CommandeSave implements Commande {
   @Override
   public void execute() {
     saveList( interprete.dessin);
+    System.out.println("Sauvegarde effectuée avec succès");
   }
 }
