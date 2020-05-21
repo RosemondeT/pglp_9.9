@@ -13,9 +13,10 @@ public class RectangleDAOTest {
 	@Test
 	  public void InsertTest(){
 		
-	    Rectangle R1 = new Rectangle("R1",3,3,5,2);
+	    Rectangle R1 = new Rectangle("R2",3,3,5,2);
 	    DAO<Rectangle> D = new RectangleDAO();
 	    D.create(R1);
+	    D.find("R2").printForme();
 	    
 	  }
 	

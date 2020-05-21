@@ -27,10 +27,11 @@ public class CercleDAOTest {
 	@Test
 	  public void InsertTest(){
 		
-	    Cercle c2 = new Cercle("c4",3,3,5);
+	    Cercle c2 = new Cercle("at",3,3,5);
 	    DAO<Cercle> D = new CercleDAO();
 	    D.create(c2);
 	    
+	    D.find("at").printForme();
 	  }
 	
  

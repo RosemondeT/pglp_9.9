@@ -21,7 +21,7 @@ public class CommandeRedoTest {
     interprete.setParametersT(new String[]{"c8", "5", "5", "2"});
     Cercle = new CommandeCercle(interprete);
     Cercle.execute();
-    DrawingTUI commande = new DrawingTUI();
+   /* DrawingTUI commande = new DrawingTUI();
     commande.printDessin(interprete);
     
     DrawingTUI commandeUndo = new DrawingTUI();
@@ -34,7 +34,7 @@ public class CommandeRedoTest {
     commandeRedo.printDessin(interprete);
     
     commande = new DrawingTUI();
-    commande.printDessin(interprete);
+    commande.printDessin(interprete);*/
     
     
   }

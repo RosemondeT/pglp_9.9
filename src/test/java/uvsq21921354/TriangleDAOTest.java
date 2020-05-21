@@ -13,9 +13,10 @@ public class TriangleDAOTest {
 	@Test
 	  public void InsertTest(){
 		
-	    Triangle T2 = new Triangle("T2",3,3,5,6,7,8);
+	    Triangle T2 = new Triangle("T4",3,3,5,6,7,8);
 	    DAO<Triangle> D = new TriangleDAO();
 	    D.create(T2);
+	    D.find("T4").printForme();
 	    
 	  }
 	

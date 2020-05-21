@@ -18,8 +18,8 @@ public class CommandeTriangleTest {
 	    interprete.setParametersT(new String[]{"r1", "0", "0", "10", "3", "6", "1"});
 	    CommandeTriangle commandeTriangle = new CommandeTriangle(interprete);
 	    commandeTriangle.execute();
-	    DrawingTUI afficheTriangle = new DrawingTUI();
-	    afficheTriangle.printDessin(interprete);
+	   /* DrawingTUI afficheTriangle = new DrawingTUI();
+	    afficheTriangle.printDessin(interprete);*/
 	  }
 
 
@@ -29,9 +29,9 @@ public class CommandeTriangleTest {
 	    interprete.setParametersT(new String[]{"R2", "0", "14"});
 	    CommandeTriangle commandeTriangle = new CommandeTriangle(interprete);
 	    commandeTriangle.execute();
-	    DrawingTUI afficheTriangle = new DrawingTUI();
-	    afficheTriangle.printDessin(interprete);}
-	  
+	   /* DrawingTUI afficheTriangle = new DrawingTUI();
+	    afficheTriangle.printDessin(interprete);}*/
+	}
 
 	@Test
 	  public void executeMauvaisParametreTest() throws Exception{
@@ -39,8 +39,8 @@ public class CommandeTriangleTest {
 	    interprete.setParametersT(new String[]{"c3", "5", "4", "5", "3", "0", "zygeai"});
 	    CommandeTriangle commandeTriangle = new CommandeTriangle(interprete);
 	    commandeTriangle.execute();
-	    DrawingTUI afficheTriangle = new DrawingTUI();
-	    afficheTriangle.printDessin(interprete);
+//	    DrawingTUI afficheTriangle = new DrawingTUI();
+//	    afficheTriangle.printDessin(interprete);
 	  }
 
 

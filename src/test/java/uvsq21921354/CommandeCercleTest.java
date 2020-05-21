@@ -21,8 +21,8 @@ public class CommandeCercleTest {
 	    interprete.setParametersT(new String[]{"c1", "0", "0", "4"});
 	    CommandeCercle commandeCercle = new CommandeCercle(interprete);
 	    commandeCercle.execute();
-	    DrawingTUI afficheCercle = new DrawingTUI();
-	    afficheCercle.printDessin(interprete);
+	   /* DrawingTUI afficheCercle = new DrawingTUI();
+	    afficheCercle.printDessin(interprete);*/
 	  }
 
 	@Test
@@ -31,8 +31,8 @@ public class CommandeCercleTest {
 	    interprete.setParametersT(new String[]{"c2", "0", "14"});
 	    CommandeCercle commandeCercle = new CommandeCercle(interprete);
 	    commandeCercle.execute();
-	    DrawingTUI afficheCercle = new DrawingTUI();
-	    afficheCercle.printDessin(interprete);
+	   /* DrawingTUI afficheCercle = new DrawingTUI();
+	    afficheCercle.printDessin(interprete);*/
 	  }
 
 	 @Test
@@ -41,7 +41,7 @@ public class CommandeCercleTest {
 	    interprete.setParametersT(new String[]{"c3", "5", "4", "abcd"});
 	    CommandeCercle commandeCercle = new CommandeCercle(interprete);
 	    commandeCercle.execute();
-	    DrawingTUI afficheCercle = new DrawingTUI();
-	    afficheCercle.printDessin(interprete);
+	    /*DrawingTUI afficheCercle = new DrawingTUI();
+	    afficheCercle.printDessin(interprete);*/
 	  }
 	}

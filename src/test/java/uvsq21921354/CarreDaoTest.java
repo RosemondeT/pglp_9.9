@@ -2,19 +2,25 @@ package uvsq21921354;
 
 
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.junit.Test;
 
 import Forme_Graphique.Carre;
+import Forme_Graphique.Cercle;
 import Persistence.CarreDAO;
 import Persistence.DAO;
+import Persistence.DAOFactory;
 
 public class CarreDaoTest {
 	@Test
 	  public void InsertTest(){
 		
-	    Carre c1 = new Carre("c2",3,3,5);
-	    DAO<Carre> D = new CarreDAO();
-	    D.create(c1);
+    Carre c1 = new Carre("att",3,3,5);
+   DAO<Carre> D = new CarreDAO();
+   D.create(c1);
+	    D.find("att").printForme();
 	    
 	  }
 	
@@ -40,6 +46,12 @@ public class CarreDaoTest {
 		 D.create(c5);
 		 D.delete(c5);
 	}
-	
+	@Test
+	  public void findAll() throws Exception {
+	    List<Carre> ls = new ArrayList<>();
+	    ls.addAll(DAOFactory.getCarreDAO().findAll());
+	    
+	    System.out.println(ls);
+	  }
 
 }

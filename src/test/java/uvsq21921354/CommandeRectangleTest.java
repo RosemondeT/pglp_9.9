@@ -17,8 +17,8 @@ public class CommandeRectangleTest {
 	    interprete.setParametersT(new String[]{"r1", "0", "0", "10", "3"});
 	    CommandeRectangle commandeRectangle = new CommandeRectangle(interprete);
 	    commandeRectangle.execute();
-	    DrawingTUI afficheRectangle = new DrawingTUI();
-	    afficheRectangle.printDessin(interprete);
+	   /* DrawingTUI afficheRectangle = new DrawingTUI();
+	    afficheRectangle.printDessin(interprete);*/
 	  }
 
 	@Test
@@ -27,8 +27,8 @@ public class CommandeRectangleTest {
 		    interprete.setParametersT(new String[]{"r1", "0", "0", "4", "9"});
 		    CommandeRectangle commandeRectangle = new CommandeRectangle(interprete);
 		    commandeRectangle.execute();
-		    DrawingTUI afficheRectangle = new DrawingTUI();
-		    afficheRectangle.printDessin(interprete);
+		   /* DrawingTUI afficheRectangle = new DrawingTUI();
+		    afficheRectangle.printDessin(interprete);*/
 		  }
 
 	 @Test
@@ -37,8 +37,8 @@ public class CommandeRectangleTest {
 	    interprete.setParametersT(new String[]{"R2", "0", "14"});
 	    CommandeRectangle commandeRectangle = new CommandeRectangle(interprete);
 	    commandeRectangle.execute();
-	    DrawingTUI afficheRectangle = new DrawingTUI();
-	    afficheRectangle.printDessin(interprete);
+//	    DrawingTUI afficheRectangle = new DrawingTUI();
+//	    afficheRectangle.printDessin(interprete);
 	  }
 
 	@Test
@@ -47,8 +47,8 @@ public class CommandeRectangleTest {
 	    interprete.setParametersT(new String[]{"c3", "5", "4", "5", "abcd"});
 	    CommandeRectangle commandeRectangle = new CommandeRectangle(interprete);
 	    commandeRectangle.execute();
-	    DrawingTUI afficheRectangle = new DrawingTUI();
-	    afficheRectangle.printDessin(interprete);
+//	    DrawingTUI afficheRectangle = new DrawingTUI();
+//	    afficheRectangle.printDessin(interprete);
 	  }
 
 
