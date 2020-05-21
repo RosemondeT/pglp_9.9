@@ -24,9 +24,12 @@ public class CommandeQuit implements Commande {
 	      if (SaisieUser.contains("oui")) {
 	        CommandeSave save = new CommandeSave(interprete);
 	        save.execute();
+	        System.out.println("Vous avez quitter le programme");
 	        System.exit(0);
+	     
 	      }
 	      if (SaisieUser.contains("non")){
+	    	   System.out.println("Vous avez quitter le programme");
 	        System.exit(0);
 	      }
 	    }

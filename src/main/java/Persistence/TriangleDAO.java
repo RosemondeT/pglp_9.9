@@ -42,7 +42,8 @@ public class TriangleDAO extends DAO<Triangle> {
 			System.out.println(" Recherche " + id);
 			PreparedStatement prepare = connect.prepareStatement("SELECT * FROM Triangle WHERE nom = ?");
 			prepare.setString(1, id);
-			ResultSet result = prepare.executeQuery();
+			prepare.execute();
+			ResultSet result = prepare.getResultSet();
 		
 			if(result.next()){
 			

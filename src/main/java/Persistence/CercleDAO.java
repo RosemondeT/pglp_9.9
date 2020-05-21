@@ -50,17 +50,20 @@ public class CercleDAO extends DAO<Cercle>{
 		try (Connection connect = DriverManager.getConnection(db)){
 			System.out.println(" Recherche " + id);
 			PreparedStatement prepare = connect.prepareStatement("SELECT * FROM Cercle WHERE nom = ?");
+			
 			prepare.setString(1, id);
-			ResultSet result = prepare.executeQuery();
+			prepare.execute();
+			ResultSet result = prepare.getResultSet();
 		
 			if(result.next()){
 			
 				C1 = new Cercle(
 			            result.getString("nom"),
-			            result.getDouble("CoordonneesX"),
-			            result.getDouble("CoordonnesY"),
+			            result.getDouble("CoordoneesX"),
+			            result.getDouble("CoordoneesY"),
 			            result.getDouble("rayon")
 			        );
+			
 			
 				result.close();
 				

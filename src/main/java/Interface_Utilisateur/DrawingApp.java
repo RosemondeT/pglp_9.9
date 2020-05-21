@@ -18,10 +18,10 @@ public enum DrawingApp
                 + "r1 =Rectangle( (0, 0), 40, 10)\n"
                 + "t1 =Triangle( (0, 0), (2, 2), (4, 0))\n"
                 + "Déplacement : move (r1, (10, 20))\n"
-                + "Afficher une ou les instances d'objet crées: view\n"
-                + "Sauvegarde une ou les instances de figures crées dans la base de données : save \n"
-                + "Suppression : delete(r1, t1)\n"
-                + "Quitter : exit\n\n"
+                + "Afficher une figure : view c1\n"
+                + "Déplacer toutes les figures crées : move (all, (10, 20))\n"
+                + "Afficher toutes les figures crées : view all\n"
+                + "Quitter : quit\n\n"
                 + "Entrer une commande :");
     	
     	 DrawingTUI dessin = new DrawingTUI();

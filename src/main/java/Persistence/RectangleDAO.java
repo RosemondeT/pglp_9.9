@@ -41,8 +41,8 @@ public class RectangleDAO extends DAO<Rectangle> {
 			System.out.println(" Recherche " + id);
 			PreparedStatement prepare = connect.prepareStatement("SELECT * FROM Rectangle WHERE nom = ?");
 			prepare.setString(1, id);
-			ResultSet result = prepare.executeQuery();
-		
+			prepare.execute();
+			ResultSet result = prepare.getResultSet();
 			if(result.next()){
 			
 				R1 = new Rectangle(

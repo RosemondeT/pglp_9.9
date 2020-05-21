@@ -14,7 +14,7 @@ public class CommandeCarre implements Commande {
 	  }
 
 	  @Override
-	  public void execute() {
+	  public void execute(){
 	    if (interprete.parametersT.length != 4) {
 	      Affichage a = new Affichage();
 	      a.posting("Erreur!!!! nombre de paramètres insuffisant pour dessiner un Carre.");

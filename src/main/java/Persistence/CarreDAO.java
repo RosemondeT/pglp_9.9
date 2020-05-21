@@ -40,9 +40,11 @@ public class CarreDAO extends DAO<Carre>{
 			System.out.println(" Recherche " + id);
 			PreparedStatement prepare = connect.prepareStatement("SELECT * FROM Carre WHERE nom = ?");
 			prepare.setString(1, id);
-			ResultSet result = prepare.executeQuery();
+			prepare.execute();
+			ResultSet result = prepare.getResultSet();
 			if(result.next()){
 			
+				try {
 				C1 = new Carre(
 			            result.getString("nom"),
 			            result.getDouble("CoordoneesX"),
@@ -50,6 +52,10 @@ public class CarreDAO extends DAO<Carre>{
 			            result.getDouble("cote")
 			        );
 				result.close();
+				}catch (Exception e) {
+					// TODO: handle exception
+					e.getMessage();
+				}
 				
 			}
 		}
@@ -57,6 +63,7 @@ public class CarreDAO extends DAO<Carre>{
 			e.printStackTrace();
 		}
 		return C1;
+		
 	}
 
 	@Override
@@ -94,8 +101,9 @@ public class CarreDAO extends DAO<Carre>{
 	public List<Carre> findAll() {
 		 List<Carre> carre = new ArrayList<>();
 			try (Connection connect = DriverManager.getConnection(db)){
-				PreparedStatement prepare = connect.prepareStatement("SELECT FROM Carre "+ "WHERE nom = ?");
-				ResultSet result = prepare.executeQuery();
+				PreparedStatement prepare = connect.prepareStatement("SELECT * FROM Carre "+ "WHERE nom = ?");
+				prepare.execute();
+				ResultSet result = prepare.getResultSet();
 				 while(result.next()){
 				        carre.add(new Carre(
 				            result.getString("nom"),
