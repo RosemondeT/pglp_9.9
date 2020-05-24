@@ -1,14 +1,20 @@
-package uvsq21921354;
-
-import static org.junit.Assert.*;
-
+package CommandTest;
 import org.junit.Test;
+import Command.CommandeQuit;
+import Command.Interpreter;
 
-/*public class CommandeQuitTest {
+/**
+ * Permet de tester les méthodes de la classe CommandeQuit
+ *
+ */
+public class CommandeQuitTest {
 
 	@Test
 	public void test() {
-		fail("Not yet implemented");
+		 Interpreter interprete = new Interpreter();
+	interprete.parametresCommande(new String[]{"quit"});
+	//CommandeQuit commandeQuit = new CommandeQuit(interprete);
+   //commandeQuit.execute();
 	}
 
-}*/
+}

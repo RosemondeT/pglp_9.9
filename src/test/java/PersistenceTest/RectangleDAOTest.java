@@ -1,39 +1,51 @@
-package uvsq21921354;
+package PersistenceTest;
+import static org.junit.Assert.assertNotNull;
 
-
-
+import org.junit.Before;
 import org.junit.Test;
-
 import Forme_Graphique.Rectangle;
 import Persistence.DAO;
+import Persistence.Login;
 import Persistence.RectangleDAO;
 
-public class RectangleDAOTest {
-
+/**
+ * permet de tester les méthodes de la classe RectangleDAO
+ *
+ */
+/*public class RectangleDAOTest {
+	
+	@Before
+	  public void seConnectTest(){
+	    Login db = new Login();
+	    db.seConnecter();
+	    db.DropTableRectangle();;
+	    db.createTableRectangle();
+	  }
+	
 	@Test
 	  public void InsertTest(){
-		
 	    Rectangle R1 = new Rectangle("R2",3,3,5,2);
 	    DAO<Rectangle> D = new RectangleDAO();
 	    D.create(R1);
-	    D.find("R2").printForme();
+	    assertNotNull(D.create(R1));
 	    
 	  }
 	
 	@Test
     public void FindTest(){
-	    RectangleDAO rectangle = new RectangleDAO();
-		rectangle.find("R1"); 
-	    
+		Rectangle r1 = new Rectangle("r1",3,3,5,2);
+		   DAO<Rectangle> D = new RectangleDAO();
+		   D.create(r1);
+		  // D.find("r1").printForme();
+		  // assertNotNull( D.find("r1"));    
 	  }
-
 	
 	@Test
     public void UpdateTest(){
 		 Rectangle R2 = new Rectangle("R2",4,4,5,2);
 		    DAO<Rectangle> D = new RectangleDAO();
 		   D.update(R2);
-		   
+		   assertNotNull(D.update(R2));	   
 	  }
 	
 	@Test
@@ -43,4 +55,4 @@ public class RectangleDAOTest {
 		 D.create(R3);
 		 D.delete(R3);
 	}
-}
+}*/

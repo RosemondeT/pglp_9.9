@@ -1,66 +1,58 @@
-package uvsq21921354;
-
-
-
+package PersistenceTest;
 import org.junit.Test;
-
-
 import Forme_Graphique.Cercle;
 import Persistence.CercleDAO;
 import Persistence.DAO;
-import Persistence.DAOFactory;
+import Persistence.Login;
 
-import java.util.ArrayList;
-import java.util.List;
+import static org.junit.Assert.assertNotNull;
+
+import org.junit.Before;
 
 /**
  * 
- * Classe qui teste la classe DAOTest
+ * Classe qui teste les méthodes de la classe DAOTest
  *
  */
-public class CercleDAOTest {
+/*public class CercleDAOTest {
+	@Before
+	  public void seConnectTest(){
+	    Login db = new Login();
+	    db.seConnecter();
+	   db.DropTableCercle();
+	    db.createTableCercle();
+	  }
 	
-	
-/**
- * Test de la méthode qui teste la méthode create()
- */
 	@Test
 	  public void InsertTest(){
 		
-	    Cercle c2 = new Cercle("at",3,3,5);
+	    Cercle c1 = new Cercle("c",2,3,5);
 	    DAO<Cercle> D = new CercleDAO();
-	    D.create(c2);
-	    
-	    D.find("at").printForme();
-	  }
+	    D.create(c1);
+	    assertNotNull( D.create(c1));
 	
- 
+	  }
 	@Test
     public void FindTest(){
-	    CercleDAO cercle = new CercleDAO();
-		cercle.find("c3"); 
-	    
+
+		Cercle c2 = new Cercle("cercle",3,3,5);
+		   DAO<Cercle> D = new CercleDAO();
+		   D.create(c2);
+		  // D.find("cercle").printForme();
+		   //assertNotNull( D.find("cercle"));    
 	  }
 	
 	@Test
     public void UpdateTest(){
-		 Cercle c3 = new Cercle("c3",3,3,5);
+		 Cercle c3 = new Cercle("bou",3,3,10);
 		    DAO<Cercle> D = new CercleDAO();
 		   D.update(c3);
+		   assertNotNull( D.update(c3));
 		   
-	  }
-	
-	@Test
-	  public void findAll() throws Exception {
-	    List<Cercle> ls = new ArrayList<>();
-	    ls.addAll(DAOFactory.getCercleDAO().findAll());
-	    
-	    System.out.println(ls);
-	  }
-	
+	}
 	@Test
 	public void deleteTest() {
-		 Cercle c5 = new Cercle("c5",3,3,5);
+		 Cercle c5 = new Cercle("c5542",3,3,5);
 		 DAO<Cercle> D = new CercleDAO();
 		 D.create(c5);
 		 D.delete(c5);
@@ -72,4 +64,4 @@ public class CercleDAOTest {
 	 
 
 
-}
+}*/

@@ -1,42 +1,53 @@
-package uvsq21921354;
+package PersistenceTest;
+import static org.junit.Assert.assertNotNull;
 
-
-
-import java.util.ArrayList;
-import java.util.List;
-
+import org.junit.Before;
 import org.junit.Test;
-
 import Forme_Graphique.Carre;
-import Forme_Graphique.Cercle;
 import Persistence.CarreDAO;
 import Persistence.DAO;
-import Persistence.DAOFactory;
+import Persistence.Login;
 
-public class CarreDaoTest {
+/**
+ * permet de tester les méthodes de la classe CarreDAO
+ *
+ */
+/*public class CarreDaoTest {
+	
+	@Before
+	  public void seConnectTest(){
+	    Login db = new Login();
+	    db.seConnecter();
+	    db.DropTableCarre();
+	    db.createTableCarre();
+	  }
+ 
 	@Test
 	  public void InsertTest(){
 		
     Carre c1 = new Carre("att",3,3,5);
    DAO<Carre> D = new CarreDAO();
    D.create(c1);
-	    D.find("att").printForme();
+   assertNotNull( D.create(c1));
 	    
 	  }
 	
 	@Test
     public void FindTest(){
-	    CarreDAO carre = new CarreDAO();
-		carre.find("c2"); 
-	    
+		
+		Carre c2 = new Carre("carr",3,3,5);
+		   DAO<Carre> D = new CarreDAO();
+		   D.create(c2);
+		   D.find("carr").printForme();
+		   assertNotNull( D.find("carr"));	
 	  }
 	
 	@Test
     public void UpdateTest(){
-		 Carre c3 = new Carre("c3",3,3,5);
+		 Carre c2 = new Carre("c2",4,3,5);
 		    DAO<Carre> D = new CarreDAO();
-		   D.update(c3);
-		   
+		   D.update(c2);
+		   assertNotNull(D.update(c2));	   
 	  }
 	
 	@Test
@@ -44,14 +55,6 @@ public class CarreDaoTest {
 		 Carre c5 = new Carre("c5",3,3,5);
 		 DAO<Carre> D = new CarreDAO();
 		 D.create(c5);
-		 D.delete(c5);
+		 D.delete(c5);		
 	}
-	@Test
-	  public void findAll() throws Exception {
-	    List<Carre> ls = new ArrayList<>();
-	    ls.addAll(DAOFactory.getCarreDAO().findAll());
-	    
-	    System.out.println(ls);
-	  }
-
-}
+}*/

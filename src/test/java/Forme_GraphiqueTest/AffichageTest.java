@@ -1,13 +1,11 @@
-package uvsq21921354;
-
+package Forme_GraphiqueTest;
+import static org.junit.Assert.assertNotNull;
 import org.junit.Test;
-
 import Forme_Graphique.Affichage;
-
 
 /**
  * 
- * Classe qui permet de tester la classe Affichage
+ * Classe qui permet de tester les méthodes de la classe Affichage
  *
  */
 public class AffichageTest {
@@ -19,6 +17,7 @@ public class AffichageTest {
 	  public void affiche() {
 	  Affichage a = new Affichage();
 	  a.posting("teste de la classe Affichage");
+	  assertNotNull(a);
 	  }
 
 }

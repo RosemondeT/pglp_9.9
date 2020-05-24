@@ -1,12 +1,12 @@
-package uvsq21921354;
-
+package Forme_GraphiqueTest;
+import static org.junit.Assert.assertTrue;
 import org.junit.Test;
-
 import Forme_Graphique.Cercle;
+import Forme_Graphique.Point2D;
 
 /**
  * 
- * Classe qui teste l'affichage et le déplacement d'un objet de type Cercle
+ * Permet de tester les méthodes de la classe Cercle
  *
  */
 public class CercleTest {
@@ -15,22 +15,24 @@ public class CercleTest {
 	 * Méthode qui teste la méthode print()
 	 */
 	@Test
-	  public void printFormeCercleTest() {
-	    Cercle c1 = new Cercle("c1",0,0,10);
-	    c1.printForme();
+	public void ConstructeurCercleTest(){
+		Point2D point = new Point2D("Point", 0,0);
+		Cercle cercle = new Cercle("Cercle", 0, 0, 10);
+		assertTrue(cercle.getNom().equals("Cercle") && cercle.getCentre().getX() == point.getX() 
+		&& cercle.getCentre().getY() == point.getY()   && cercle.getRayon() == 10);
 	  }
-
+	
 
 	/**
 	 * Méthode qui teste la méthode move()
 	 */
 	@Test
-	  public void moveCercleTest(){
-	    Cercle C1 = new Cercle("C1",0,0,2);
-	    C1.printForme();
-	    C1.move(5,4);
-	    C1.printForme();
+	public void MoveCercleTest() {
+		Cercle cercle = new Cercle("Cercle",2,2, 5);
+		cercle.move(5, 6);
+		assertTrue(cercle.getCentre().getX() == 5 && cercle.getCentre().getY() == 6);
 	  }
+
 
 	
 }

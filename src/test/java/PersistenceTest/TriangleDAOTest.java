@@ -1,14 +1,28 @@
-package uvsq21921354;
+package PersistenceTest;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertNull;
 
-
-
+import org.junit.Before;
 import org.junit.Test;
-
 import Forme_Graphique.Triangle;
 import Persistence.DAO;
+import Persistence.Login;
 import Persistence.TriangleDAO;
 
-public class TriangleDAOTest {
+/**
+ * Permet de tester les méthodes de la classe TriangleDAO
+ *
+ */
+/*public class TriangleDAOTest {
+	
+	@Before
+	  public void seConnectTest(){
+	    Login db = new Login();
+	    db.seConnecter();
+	    db.DropTableTriangle();
+	    db.createTableTriangle();
+	  }
+	
 
 	@Test
 	  public void InsertTest(){
@@ -16,14 +30,17 @@ public class TriangleDAOTest {
 	    Triangle T2 = new Triangle("T4",3,3,5,6,7,8);
 	    DAO<Triangle> D = new TriangleDAO();
 	    D.create(T2);
-	    D.find("T4").printForme();
-	    
+	    assertNotNull(D.create(T2));
 	  }
 	
 	@Test
     public void FindTest(){
-		TriangleDAO T = new TriangleDAO();
-		T.find("T2"); 
+		Triangle T1 = new Triangle("T1",3,3,5,6,7,8);
+	    DAO<Triangle> D = new TriangleDAO();
+	    D.create(T1);
+	   // assertNull(D.find("T1"));
+	    //D.find("T1").printForme();
+	    //assertNotNull(D.find("T1"));
 	    
 	  }
 	
@@ -32,6 +49,7 @@ public class TriangleDAOTest {
 		 Triangle T3 = new Triangle("T3",2,2,5,6,7,8);
 		    DAO<Triangle> D = new TriangleDAO();
 		   D.update(T3);
+		   assertNotNull(D.update(T3));
 		   
 	  }
 	
@@ -45,4 +63,4 @@ public class TriangleDAOTest {
 	
 	
 
-}
+}*/
