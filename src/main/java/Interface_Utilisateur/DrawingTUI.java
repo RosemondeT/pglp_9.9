@@ -62,6 +62,9 @@ public class DrawingTUI {
 				  interprete.parametresCommande(new String[]{chaine[0], chaine[2], chaine[3],chaine[4]});
 					  CommandeCarre commandeCarre = new CommandeCarre(interprete);
 					    commandeCarre.execute();
+					    for (FormeGraphique form : interprete.Liste_FormeGraphique) {
+							  form.printForme();
+						}
 //					    reponseUser = reponseUtilisateur();
 //					    if(reponseUser.contentEquals("y") || reponseUser.contentEquals("Y") || reponseUser.contentEquals("yes")) {
 //							 CommandeSave save = new CommandeSave(interprete);
@@ -75,6 +78,9 @@ public class DrawingTUI {
 					  interprete.parametresCommande(new String[]{chaine[0], chaine[2], chaine[3],chaine[4]});
 					  CommandeCercle commandeCercle = new CommandeCercle(interprete);
 					    commandeCercle.execute();
+					    for (FormeGraphique form : interprete.Liste_FormeGraphique) {
+							  form.printForme();
+						}
 //					    reponseUser = reponseUtilisateur();
 //					    if(reponseUser.contentEquals("y") || reponseUser.contentEquals("Y") || reponseUser.contentEquals("yes")) {
 //							 CommandeSave save = new CommandeSave(interprete);
@@ -91,6 +97,9 @@ public class DrawingTUI {
 					  interprete.parametresCommande(new String[]{chaine[0], chaine[2], chaine[3],chaine[4], chaine[5] });
 					  CommandeRectangle commandeRectangle = new CommandeRectangle(interprete);
 					    commandeRectangle.execute();
+					    for (FormeGraphique form : interprete.Liste_FormeGraphique) {
+							  form.printForme();
+						}
 //					    reponseUser = reponseUtilisateur();
 //					    if(reponseUser.contentEquals("y") || reponseUser.contentEquals("Y") || reponseUser.contentEquals("yes")) {
 //							 CommandeSave save = new CommandeSave(interprete);
@@ -104,6 +113,9 @@ public class DrawingTUI {
 					  interprete.parametresCommande(new String[]{chaine[0],chaine[2], chaine[3], chaine[4],chaine[5], chaine[6], chaine[7] });
 					  CommandeTriangle commandeTriangle = new CommandeTriangle(interprete);
 					    commandeTriangle.execute();
+					    for (FormeGraphique form : interprete.Liste_FormeGraphique) {
+							  form.printForme();
+						}
 //					    reponseUser = reponseUtilisateur();
 //					    if(reponseUser.contentEquals("y") || reponseUser.contentEquals("Y") || reponseUser.contentEquals("yes")) {
 //							 CommandeSave save = new CommandeSave(interprete);
