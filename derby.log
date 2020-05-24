@@ -1,11 +1,11 @@
 ----------------------------------------------------------------
-Sun May 24 05:24:35 CEST 2020:
-Booting Derby version The Apache Software Foundation - Apache Derby - 10.12.1.1 - (1704137): instance a816c00e-0172-44b5-f5c7-000005bdbb88 
-on database directory /home/traore-mousso/Bureau/TP_GL/pglp_9.9/bd with class loader sun.misc.Launcher$AppClassLoader@677327b6 
-Loaded from file:/home/traore-mousso/.m2/repository/org/apache/derby/derby/10.12.1.1/derby-10.12.1.1.jar
+Sun May 24 23:55:24 CEST 2020:
+Booting Derby version The Apache Software Foundation - Apache Derby - 10.12.1.1 - (1704137): instance a816c00e-0172-48ae-f315-000005f4bfd8 
+on database directory /home/ablo/Bureau/essai/pglp_9.9/bd with class loader sun.misc.Launcher$AppClassLoader@7f31245a 
+Loaded from file:/home/ablo/.m2/repository/org/apache/derby/derby/10.12.1.1/derby-10.12.1.1.jar
 java.vendor=Private Build
 java.runtime.version=1.8.0_252-8u252-b09-1~18.04-b09
-user.dir=/home/traore-mousso/Bureau/TP_GL/pglp_9.9
+user.dir=/home/ablo/Bureau/essai/pglp_9.9
 os.name=Linux
 os.arch=amd64
 os.version=5.3.0-51-generic

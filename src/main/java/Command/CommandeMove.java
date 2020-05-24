@@ -47,43 +47,44 @@ public class CommandeMove implements Commande {
         forme = (Groupe_FormeGraphique) form;
         for (FormeGraphique f1 : forme.liste){
           if (f1.getNom().equals(name)) return f1;
-        }
-      } else { //lorsque l'objet ne se trouve pas en instance on se connecte dans la base de données pour la chercher
-    	  Login conn = new Login();
-          conn.seConnecter();
-          
-          FormeGraphique f = null;
-       
-              DAO<Cercle> cercle = new CercleDAO();
-              
-      	     if (cercle.find(name) !=null) 
-      	     {
-      	    	 
-      	    	 f=cercle.find(name); 
-      	     }else {
-     	    	 DAO<Carre> carre = new CarreDAO();
-        	    	
-      	    
-      	    	  if (carre.find(name) !=null) 
-      	    	  { 
-      	    		  f= carre.find(name);
-      	    		  
-      	    	  } else {
-      	    		DAO<Rectangle> rectangle = new RectangleDAO();
-      	    		
-      	    		if (rectangle.find(name) !=null) {
-      	    		  f= rectangle.find(name);
-      	    		}else {
-      	    			DAO<Triangle> triangle = new TriangleDAO();
-      	    			
-      	    			if (triangle.find(name) !=null) {
-      	    				 f= triangle.find(name);
-      	    			} else return f=null;
-      	    		}
-      	    	  }
-          
-                      }   
-    }}
+        }}}
+//      } else { //lorsque l'objet ne se trouve pas en instance on se connecte dans la base de données pour la chercher
+//    	  Login conn = new Login();
+//          conn.seConnecter();
+//          
+//          FormeGraphique f = null;
+//       
+//              DAO<Cercle> cercle = new CercleDAO();
+//              
+//      	     if (cercle.find(name) !=null) 
+//      	     {
+//      	    	 
+//      	    	 f=cercle.find(name); 
+//      	     }else {
+//     	    	 DAO<Carre> carre = new CarreDAO();
+//        	    	
+//      	    
+//      	    	  if (carre.find(name) !=null) 
+//      	    	  { 
+//      	    		  f= carre.find(name);
+//      	    		  
+//      	    	  } else {
+//      	    		DAO<Rectangle> rectangle = new RectangleDAO();
+//      	    		
+//      	    		if (rectangle.find(name) !=null) {
+//      	    		  f= rectangle.find(name);
+//      	    		}else {
+//      	    			DAO<Triangle> triangle = new TriangleDAO();
+//      	    			
+//      	    			if (triangle.find(name) !=null) {
+//      	    				 f= triangle.find(name);
+//      	    			} else return f=null;
+//      	    		}
+//      	    	  }
+//          
+//                      }   
+//    }
+//      }
     return null;
   }
 /**

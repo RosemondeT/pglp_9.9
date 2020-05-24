@@ -62,11 +62,11 @@ public class DrawingTUI {
 				  interprete.parametresCommande(new String[]{chaine[0], chaine[2], chaine[3],chaine[4]});
 					  CommandeCarre commandeCarre = new CommandeCarre(interprete);
 					    commandeCarre.execute();
-					    reponseUser = reponseUtilisateur();
-					    if(reponseUser.contentEquals("y") || reponseUser.contentEquals("Y") || reponseUser.contentEquals("yes")) {
-							 CommandeSave save = new CommandeSave(interprete);
-							 save.execute(); 
-					    }
+//					    reponseUser = reponseUtilisateur();
+//					    if(reponseUser.contentEquals("y") || reponseUser.contentEquals("Y") || reponseUser.contentEquals("yes")) {
+//							 CommandeSave save = new CommandeSave(interprete);
+//							 save.execute(); 
+//					    }
 				  }else {
 					  throw new ParametresIncorrectsException();
 				  }
@@ -75,11 +75,11 @@ public class DrawingTUI {
 					  interprete.parametresCommande(new String[]{chaine[0], chaine[2], chaine[3],chaine[4]});
 					  CommandeCercle commandeCercle = new CommandeCercle(interprete);
 					    commandeCercle.execute();
-					    reponseUser = reponseUtilisateur();
-					    if(reponseUser.contentEquals("y") || reponseUser.contentEquals("Y") || reponseUser.contentEquals("yes")) {
-							 CommandeSave save = new CommandeSave(interprete);
-							 save.execute(); 	 
-					       }
+//					    reponseUser = reponseUtilisateur();
+//					    if(reponseUser.contentEquals("y") || reponseUser.contentEquals("Y") || reponseUser.contentEquals("yes")) {
+//							 CommandeSave save = new CommandeSave(interprete);
+//							 save.execute(); 	 
+//					       }
 					    }else {
 					    	throw new ParametresIncorrectsException();
 					    }
@@ -91,11 +91,11 @@ public class DrawingTUI {
 					  interprete.parametresCommande(new String[]{chaine[0], chaine[2], chaine[3],chaine[4], chaine[5] });
 					  CommandeRectangle commandeRectangle = new CommandeRectangle(interprete);
 					    commandeRectangle.execute();
-					    reponseUser = reponseUtilisateur();
-					    if(reponseUser.contentEquals("y") || reponseUser.contentEquals("Y") || reponseUser.contentEquals("yes")) {
-							 CommandeSave save = new CommandeSave(interprete);
-							 save.execute(); 
-					    }
+//					    reponseUser = reponseUtilisateur();
+//					    if(reponseUser.contentEquals("y") || reponseUser.contentEquals("Y") || reponseUser.contentEquals("yes")) {
+//							 CommandeSave save = new CommandeSave(interprete);
+//							 save.execute(); 
+//					    }
 				  	}else {
 				  		throw new ParametresIncorrectsException();
 				  	}
@@ -104,11 +104,11 @@ public class DrawingTUI {
 					  interprete.parametresCommande(new String[]{chaine[0],chaine[2], chaine[3], chaine[4],chaine[5], chaine[6], chaine[7] });
 					  CommandeTriangle commandeTriangle = new CommandeTriangle(interprete);
 					    commandeTriangle.execute();
-					    reponseUser = reponseUtilisateur();
-					    if(reponseUser.contentEquals("y") || reponseUser.contentEquals("Y") || reponseUser.contentEquals("yes")) {
-							 CommandeSave save = new CommandeSave(interprete);
-							 save.execute(); 
-					    }
+//					    reponseUser = reponseUtilisateur();
+//					    if(reponseUser.contentEquals("y") || reponseUser.contentEquals("Y") || reponseUser.contentEquals("yes")) {
+//							 CommandeSave save = new CommandeSave(interprete);
+//							 save.execute(); 
+//					    }
 					  
 					  }else {
 						  throw new ParametresIncorrectsException();
