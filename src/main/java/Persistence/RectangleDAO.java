@@ -1,20 +1,28 @@
 package Persistence;
-
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.List;
 
-
+/**
+ * Cette classe permet de d'effectuer les insertions, les mises à jour,
+ * les recherches et les suppressions des objects dans la table Rectangle
+ *
+ */
 import Forme_Graphique.Rectangle;
 
+/**
+ * Cette classe permet de d'effectuer les insertions, les mises à jour,
+ * les recherches et les suppressions des objects dans la table Rectangle
+ *
+ */
 public class RectangleDAO extends DAO<Rectangle> {
 	
 	private static String db = Login.db;
-
+/**
+ * Permet les insertions dans la table Rectangle
+ */
 	@Override
 	public Rectangle create(Rectangle objet) {
 		try (Connection connect = DriverManager.getConnection(db)){
@@ -33,7 +41,9 @@ public class RectangleDAO extends DAO<Rectangle> {
 		}
 		return objet;
 	}
-
+/**
+ * Permet de faire une recherche dans la table Rectangle
+ */
 	@Override
 	public Rectangle find(String id) {
 		Rectangle R1= null;
@@ -60,10 +70,11 @@ public class RectangleDAO extends DAO<Rectangle> {
 		catch (SQLException e){
 			e.printStackTrace();
 		}
-		return R1;
-		
+		return R1;		
 	}
-
+/**
+ * Permet de faire la mise à jour de la table
+ */
 	@Override
 	public Rectangle update(Rectangle objet) {
 		try (Connection connect = DriverManager.getConnection(db)) {
@@ -73,8 +84,6 @@ public class RectangleDAO extends DAO<Rectangle> {
 			prepare.setDouble(3, objet.getPoint_depart().getY());
 			prepare.setDouble(4, objet.getLongueur());
 			prepare.setDouble(5, objet.getLargeur());
-			
-		
 			int result = prepare.executeUpdate();
 			assert result ==1;
 		}
@@ -85,6 +94,9 @@ public class RectangleDAO extends DAO<Rectangle> {
 		return objet;
 	}
 
+	/**
+	 * Permet de supprimer un element dans la table Rectangle
+	 */
 	@Override
 	public void delete(Rectangle objet) {
 		try (Connection connect = DriverManager.getConnection(db)){
@@ -99,29 +111,6 @@ public class RectangleDAO extends DAO<Rectangle> {
 		}
 		
 	}
-
-	@Override
-	public List<Rectangle> findAll() {
-		 List<Rectangle> rectangle = new ArrayList<>();
-			try (Connection connect = DriverManager.getConnection(db)){
-				PreparedStatement prepare = connect.prepareStatement("SELECT FROM Rectangle "+ "WHERE nom = ?");
-				ResultSet result = prepare.executeQuery();
-		      while(result.next()){
-		        rectangle.add(new Rectangle(
-		            result.getString("nom"),
-		            result.getDouble("CoordoneesX"),
-		            result.getDouble("CoordoneesY"),
-		            result.getDouble("longeur"),
-		            result.getDouble("largeur")
-		        ));
-		      }
-		    
-		    }catch(Exception e){
-		      e.printStackTrace();
-		    }
-		  
-		    return rectangle;
-		  }
 	}
 
 

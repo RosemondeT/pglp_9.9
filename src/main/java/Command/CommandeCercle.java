@@ -1,43 +1,44 @@
 package Command;
+import Exception.ParametresIncorrectsException;
 
-
-import java.util.ArrayList;
-
-import Forme_Graphique.Affichage;
 import Forme_Graphique.Cercle;
-
 
 /**
  * 
- * Classe CommandeCercle qui implémente l'interface Commande
+ * Classe CommandeCercle implémente l'interface Commande.
+ * Cette classe implémente la méthode execute de l'interface Commande.
+ * On fait appelle à cette classe lorque l'utilisateur passe une commande
+ * pour créer un Cercle
  *
  */
 
 public class CommandeCercle implements Commande{
-  private Interpreteur interprete;
+  private Interpreter interprete;
   
   /**
-   * Constructeur
+   * Constructeur de la classe
    * @param interpreteur
    */
-  public CommandeCercle(Interpreteur interpreteur){
-    this.interprete=interpreteur;
+  public CommandeCercle(Interpreter interprete){
+    this.interprete=interprete;
   }
-
+  /**
+   * Implémentation de la méthode execute. Cette méthode permet
+   * de vérifier d'abord le nombre de paramètre entré par l'utlisateur
+   * pour créer un cercle avant de passer à la création du cercle
+   */
   @Override
-  public void execute() {
-    if (interprete.parametersT.length != 4) {
-      Affichage a = new Affichage();
-      a.posting("Erreur!!!! nombre de paramètres insuffisant pour dessiner un Cercle.");
+  public void execute() throws ParametresIncorrectsException {
+    if (interprete.parametresCommande.length != 4) {
+    	 throw new ParametresIncorrectsException();
     }
     else{
       try {
-        interprete.undo.push(new ArrayList<>( interprete.dessin));
-        interprete.redo.clear();
-        double x = Double.parseDouble( interprete.parametersT[1]);
-        double y = Double.parseDouble( interprete.parametersT[2]);
-        double z = Double.parseDouble( interprete.parametersT[3]);
-        interprete.dessin.add(new Cercle( interprete.parametersT[0],x,y,z));
+     
+        double x = Double.parseDouble( interprete.parametresCommande[1]);
+        double y = Double.parseDouble( interprete.parametresCommande[2]);
+        double z = Double.parseDouble( interprete.parametresCommande[3]);
+        interprete.Liste_FormeGraphique.add(new Cercle( interprete.parametresCommande[0],x,y,z));
         System.out.println("Figure Cercle crée avec succès!!!!");
       }catch(NumberFormatException e){
         e.printStackTrace();

@@ -6,7 +6,6 @@ package Forme_Graphique;
  *de type Ppoint2D. Par exemple l'origine d'un cercle est de type Point2D.
  *
  */
-
 public class Point2D {
 	private String nom;
 	  private double x;
@@ -23,14 +22,13 @@ public class Point2D {
 	    this.x = x;
 	    this.y = y;
 	  }
-
 	  
 	  /**
 	   * Méthode qui permet de déplacer un objet de type Point2D
 	   */
 	  public void move(double dx, double dy) {
-		  x+=dx;
-		  y+=dy;
+		  x=dx;
+		  y=dy;
 		 }
 	
 	  
@@ -91,7 +89,6 @@ public class Point2D {
 	public String toString() {
 		return "Point [nom=" + nom + ", x=" + x + ", y=" + y + "]";
 	}
-	
 	
 	/**
 	 * Permet l'affichage d'un objet de type Point2D

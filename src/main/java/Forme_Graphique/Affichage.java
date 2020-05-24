@@ -1,5 +1,4 @@
 package Forme_Graphique;
-
 /**
  * 
  * Cette classe est utilisé par les classes Cercle, Carre, Point2D, Triangle, rectangle

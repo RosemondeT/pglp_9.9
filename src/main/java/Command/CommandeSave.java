@@ -1,21 +1,28 @@
 package Command;
-
-
-
 import Forme_Graphique.*;
-
-
 import Persistence.DAOFactory;
-
 import java.util.List;
-
+/**
+ * Cette classe implemente l'interface Commande et la méthode
+ * execute.On fait appelle à cette méthode lorsque l'utilisateur
+ * demande à sauvegarder les commandes effectuées.
+ *
+ */
 public class CommandeSave implements Commande {
-  private Interpreteur interprete;
-
-  public CommandeSave(Interpreteur interpreteur) {
+  private Interpreter interprete;
+/**
+ * Constructeur
+ * @param interpreteur
+ */
+  public CommandeSave(Interpreter interpreteur) {
   this. interprete=interpreteur;
   }
-
+/**
+ * Cette méthode permet d'abord de vérifier l'instance d'une commande
+ * pour savoir si c'est un cercle, un carré, un rectangle ou
+ * un triangle avant de sauvegarder dans la base de données correspndante
+ * @param list
+ */
   public void saveList(List<FormeGraphique> list){
     for (FormeGraphique form : list){
    
@@ -26,10 +33,13 @@ public class CommandeSave implements Commande {
       else if (form instanceof Groupe_FormeGraphique) saveList(((Groupe_FormeGraphique) form).liste);
     }
   }
-
+/**
+ * Implémentation de la méthode execute qui fait appelle à la méthode saveList 
+ * lorsque l'utilisateur demande à sauvegarder une commande
+ */
   @Override
   public void execute() {
-    saveList( interprete.dessin);
+    saveList( interprete.Liste_FormeGraphique);
     System.out.println("Sauvegarde effectuée avec succès");
   }
 }

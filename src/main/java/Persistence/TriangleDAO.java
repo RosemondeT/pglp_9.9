@@ -1,5 +1,4 @@
 package Persistence;
-
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -7,13 +6,19 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
-
 import Forme_Graphique.Triangle;
 
+/**
+ * Cette classe permet de d'effectuer les insertions, les mises à jour,
+ * les recherches et les suppressions des objects dans la table Triangle
+ *
+ */
 public class TriangleDAO extends DAO<Triangle> {
 	
 	private static String db = Login.db;
-
+/**
+ * Permet l'insertion dans la table Triangle
+ */
 	@Override
 	public Triangle create(Triangle objet) {
 		try (Connection connect = DriverManager.getConnection(db)){
@@ -35,6 +40,9 @@ public class TriangleDAO extends DAO<Triangle> {
 		return objet;
 	}
 
+	/**
+	 * Permet de rechercher un element dans la table Triangle
+	 */
 	@Override
 	public Triangle find(String id) {
 		Triangle T1= null;
@@ -44,9 +52,7 @@ public class TriangleDAO extends DAO<Triangle> {
 			prepare.setString(1, id);
 			prepare.execute();
 			ResultSet result = prepare.getResultSet();
-		
 			if(result.next()){
-			
 				T1 = new Triangle(
 			            result.getString("nom"),
 			            result.getDouble("CoordoneesX"),
@@ -57,9 +63,7 @@ public class TriangleDAO extends DAO<Triangle> {
 			            result.getDouble("CoordoneesV")
 			        );
 				
-			
-				result.close();
-				
+				result.close();	
 			}
 		}
 		catch (SQLException e){
@@ -67,7 +71,9 @@ public class TriangleDAO extends DAO<Triangle> {
 		}
 		return T1;
 	}
-
+/**
+ * permet de mettre à jour un element dans la table Triangle
+ */
 	@Override
 	public Triangle update(Triangle objet) {
 		try (Connection connect = DriverManager.getConnection(db)) {
@@ -79,8 +85,6 @@ public class TriangleDAO extends DAO<Triangle> {
 			prepare.setDouble(5, objet.getPoint2().getY());
 			prepare.setDouble(6, objet.getPoint3().getX());
 			prepare.setDouble(7, objet.getPoint3().getY());
-		
-		
 			int result = prepare.executeUpdate();
 			assert result ==1;
 		}
@@ -91,6 +95,9 @@ public class TriangleDAO extends DAO<Triangle> {
 		return objet;
 	}
 
+	/**
+	 * permet de supprimer un element dans la table Triangle
+	 */
 	@Override
 	public void delete(Triangle objet) {
 		try (Connection connect = DriverManager.getConnection(db)){
@@ -105,31 +112,6 @@ public class TriangleDAO extends DAO<Triangle> {
 		}
 		
 	}
-
-	@Override
-	public List<Triangle> findAll() {
-		List<Triangle> triangle = new ArrayList<>();
-		try (Connection connect = DriverManager.getConnection(db)){
-			PreparedStatement prepare = connect.prepareStatement("SELECT FROM Triangle "+ "WHERE nom = ?");
-			ResultSet result = prepare.executeQuery();
-	      while(result.next()){
-	        triangle.add(new Triangle(
-	            result.getString("nom"),
-	            result.getDouble("CoordoneesX"),
-	            result.getDouble("CoordoneesY"),
-	            result.getDouble("CoordoneesZ"),
-	            result.getDouble("CoordoneesT"),
-	            result.getDouble("CoordoneesU"),
-	            result.getDouble("CoordoneesV")
-	        ));
-	      }
-	    
-	    }catch(Exception e){
-	      e.printStackTrace();
-	    }
-	  
-	    return triangle;
-	  }
 	}
 
 

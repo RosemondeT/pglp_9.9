@@ -1,14 +1,13 @@
 package Command;
-
-import Forme_Graphique.FormeGraphique;
-
+import Exception.DrawingNotFoundException;
+import Exception.ParametresIncorrectsException;
+import Exception.RectangleLongueurLargeurException;
 /**
  * 
- *Interface Commande
+ *Interface Commande qui contient une méthode execute qui sera implémenté
+ *par toutes les classes implémentant l'interface Commande
  *
  */
 public interface Commande {
-	 public void execute();
-
-
+	 public void execute() throws ParametresIncorrectsException, DrawingNotFoundException, RectangleLongueurLargeurException;
 }

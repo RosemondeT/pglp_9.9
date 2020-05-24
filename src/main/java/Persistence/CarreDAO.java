@@ -1,20 +1,22 @@
 package Persistence;
-
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.List;
-
 import Forme_Graphique.Carre;
-import Forme_Graphique.Cercle;
 
+/**
+ * Cette classe permet de d'effectuer les insertions, les mises à jour,
+ * les recherches et les suppressions des objects dans la table Carre
+ *
+ */
 public class CarreDAO extends DAO<Carre>{
 	
 	private static String db = Login.db;
-
+/**
+ * Permet les insertions dans la table Carre
+ */
 	@Override
 	public Carre create(Carre objet) {
 		try (Connection connect = DriverManager.getConnection(db)){
@@ -32,7 +34,9 @@ public class CarreDAO extends DAO<Carre>{
 		}
 		return objet;
 	}
-
+/**
+ * Permet de rechercher un element dans la table Carre
+ */
 	@Override
 	public Carre find(String id) {
 		Carre C1= null;
@@ -43,7 +47,6 @@ public class CarreDAO extends DAO<Carre>{
 			prepare.execute();
 			ResultSet result = prepare.getResultSet();
 			if(result.next()){
-			
 				try {
 				C1 = new Carre(
 			            result.getString("nom"),
@@ -53,19 +56,19 @@ public class CarreDAO extends DAO<Carre>{
 			        );
 				result.close();
 				}catch (Exception e) {
-					// TODO: handle exception
 					e.getMessage();
-				}
-				
+				}				
 			}
 		}
 		catch (SQLException e){
 			e.printStackTrace();
 		}
-		return C1;
-		
+		return C1;		
 	}
 
+	/**
+	 * Permet de faire la mise à jour dans une table Carre
+	 */
 	@Override
 	public Carre update(Carre objet) {
 		try (Connection connect = DriverManager.getConnection(db)) {
@@ -82,6 +85,9 @@ public class CarreDAO extends DAO<Carre>{
 		return objet;
 	}
 
+	/**
+	 * Permet de supprimer un element dans la table Carre
+	 */
 	@Override
 	public void delete(Carre objet) {
 		try (Connection connect = DriverManager.getConnection(db)){
@@ -96,29 +102,7 @@ public class CarreDAO extends DAO<Carre>{
 		}
 		
 	}
-
-	@Override
-	public List<Carre> findAll() {
-		 List<Carre> carre = new ArrayList<>();
-			try (Connection connect = DriverManager.getConnection(db)){
-				PreparedStatement prepare = connect.prepareStatement("SELECT * FROM Carre "+ "WHERE nom = ?");
-				prepare.execute();
-				ResultSet result = prepare.getResultSet();
-				 while(result.next()){
-				        carre.add(new Carre(
-				            result.getString("nom"),
-				            result.getDouble("CoordoneesX"),
-				            result.getDouble("CoordoneesY"),
-				            result.getDouble("rayon")
-				        ));
-				      }
-		    }catch(Exception e){
-		      e.printStackTrace();
-		    }
-		  
-		    return carre;
-		  }
-	}
+}
 		
 	
 

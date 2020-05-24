@@ -1,6 +1,4 @@
 package Persistence;
-
-
 import Forme_Graphique.Carre;
 import Forme_Graphique.Cercle;
 import Forme_Graphique.Rectangle;
@@ -28,7 +26,6 @@ public class DAOFactory {
 		    return new TriangleDAO();
 		  }
 	 
-	   
 	    public static DAO<Groupe_FormeGraphique> getGroupe_FormeGraphiqueDao() {
 	        return new Groupe_FormeGraphiqueDAO();
 	    }

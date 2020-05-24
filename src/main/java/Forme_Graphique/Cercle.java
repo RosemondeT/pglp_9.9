@@ -101,11 +101,7 @@ public class Cercle implements FormeGraphique {
 		 Affichage a=new Affichage();
 		    a.posting(this.toString());
 		
-	}
-
-
-	
-		
+	}		
 	}
 
 

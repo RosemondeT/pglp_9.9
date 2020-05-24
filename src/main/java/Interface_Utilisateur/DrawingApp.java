@@ -1,14 +1,27 @@
  package Interface_Utilisateur;
-
 import java.util.Scanner;
-
 import Command.Commande;
+import Exception.CommandeIncorrectException;
+import Exception.DrawingNotFoundException;
+import Exception.ParametresIncorrectsException;
+import Exception.RectangleLongueurLargeurException;
 
+/**
+ * Permet qui permet de recuperer la saisie des utilisateurs
+ *
+ */
 public enum DrawingApp
 {
     DRAWINGAPP;
 
-    private void run(){
+	/**
+	 * Méthode run()
+	 * @throws ParametresIncorrectsException
+	 * @throws CommandeIncorrectException
+	 * @throws DrawingNotFoundException
+	 * @throws RectangleLongueurLargeurException 
+	 */
+    private void run() throws ParametresIncorrectsException, CommandeIncorrectException, DrawingNotFoundException, RectangleLongueurLargeurException{
     	
     	System.out.println("****BIENVENU SUR L'APPLICATION DE DESSIN****\n");
     	System.out.println("Exemples de commandes valides :\n"
@@ -25,19 +38,23 @@ public enum DrawingApp
                 + "Entrer une commande :");
     	
     	 DrawingTUI dessin = new DrawingTUI();
-         //Scanner saisieUser;
     	Scanner saisieUser;    
     while (true) {
     	
         Scanner scanner = saisieUser = new Scanner(System.in);
     	String chaine= saisieUser.nextLine();
     
-        Commande commande = dessin.nextCommande(chaine);}}
-       
+        Commande commande = dessin.nextCommande(chaine);}}   
 
-    
-
-    public static void main(String[] args){
+    /**
+     * Méthode main
+     * @param args
+     * @throws ParametresIncorrectsException
+     * @throws CommandeIncorrectException
+     * @throws DrawingNotFoundException
+     * @throws RectangleLongueurLargeurException 
+     */
+    public static void main(String[] args) throws ParametresIncorrectsException, CommandeIncorrectException, DrawingNotFoundException, RectangleLongueurLargeurException{
         DRAWINGAPP.run();
     }
 }

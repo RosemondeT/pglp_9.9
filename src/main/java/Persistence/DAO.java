@@ -1,7 +1,5 @@
 package Persistence;
 
-import java.util.List;
-
 /**
  * 
  * DAO
@@ -10,10 +8,8 @@ import java.util.List;
  */
 
 public abstract class DAO<T> {
-	 public abstract T create(T objet);
+	  public abstract T create(T objet);
 	  public abstract T update(T objet);
 	  public abstract T find(String id);
 	  public abstract void delete(T objet);
-	  public abstract List<T> findAll();
-
 }

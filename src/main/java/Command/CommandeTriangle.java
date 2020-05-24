@@ -1,40 +1,46 @@
 package Command;
-
-import java.util.ArrayList;
-
-import Forme_Graphique.Affichage;
+import Exception.ParametresIncorrectsException;
 import Forme_Graphique.Triangle;
-
+/**
+ * 
+ * Classe CommandeTriangle implémente l'interface Commande.
+ * Cette classe implémente la méthode execute de l'interface Commande.
+ * On fait appelle à cette classe lorque l'utilisateur passe une commande
+ * pour créer un Triangle
+ *
+ */
 
 public class CommandeTriangle implements Commande {
-	private Interpreteur interprete;
+	private Interpreter interprete;
 	  
 	  /**
 	   * Constructeur
 	   * @param interpreteur
 	   */
-	  public CommandeTriangle(Interpreteur interpreteur){
+	  public CommandeTriangle(Interpreter interpreteur){
 	    this.interprete=interpreteur;
 	  }
-
+	  /**
+	   * Implémentation de la méthode execute. Cette méthode permet
+	   * de vérifier d'abord le nombre de paramètre entré par l'utlisateur
+	   * pour créer un triangle avant de passer à la création du triangle
+	   */
 	  @Override
-	  public void execute() {
-	    if (interprete.parametersT.length != 7) {
-	      Affichage a = new Affichage();
-	      a.posting("Erreur!!!! nombre de paramètres insuffisant pour dessiner un Triangle.");
+	  public void execute() throws ParametresIncorrectsException {
+	    if (interprete.parametresCommande.length != 7) {
+	    	throw new ParametresIncorrectsException();
 	    }
 	    else{
 	      try {
-	        interprete.undo.push(new ArrayList<>( interprete.dessin));
-	        interprete.redo.clear();
-	        double x = Integer.parseInt( interprete.parametersT[1]);
-	        double y = Integer.parseInt( interprete.parametersT[2]);
-	        double z = Double.parseDouble( interprete.parametersT[3]);
-	        double t = Double.parseDouble( interprete.parametersT[4]);
-	        double u = Double.parseDouble( interprete.parametersT[5]);
-	        double v = Double.parseDouble( interprete.parametersT[6]);
+	       
+	        double x = Integer.parseInt( interprete.parametresCommande[1]);
+	        double y = Integer.parseInt( interprete.parametresCommande[2]);
+	        double z = Double.parseDouble( interprete.parametresCommande[3]);
+	        double t = Double.parseDouble( interprete.parametresCommande[4]);
+	        double u = Double.parseDouble( interprete.parametresCommande[5]);
+	        double v = Double.parseDouble( interprete.parametresCommande[6]);
 	        
-	         interprete.dessin.add(new Triangle( interprete.parametersT[0],x,y,z,t, u, v));
+	         interprete.Liste_FormeGraphique.add(new Triangle( interprete.parametresCommande[0],x,y,z,t, u, v));
 	         System.out.println("Figure Triangle crée avec succès");
 			    
 	      }catch(NumberFormatException e){

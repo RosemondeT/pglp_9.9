@@ -6,7 +6,6 @@ package Forme_Graphique;
  * Cette classe est implémenté par les classes Cercle, Carre, Rectangle, Triangle 
  *
  */
-
 public interface FormeGraphique {
 	void move(double x, double y); //pour le deplacemnet
 	  void printForme(); // pour l'affichage
